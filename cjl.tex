@@ -1,18 +1,95 @@
-\documentclass[a4paper,12pt]{article}
-\usepackage[T1]{fontenc}
-\usepackage{import}
+\documentclass[11pt]{article}
+\usepackage[a4paper, total={7in, 10in}]{geometry} % Border sizes
+\usepackage[T1]{fontenc} % LaTeX default font encoding 
+\usepackage{import} % LaTeX import package for importing LaTeX code
+\usepackage{multirow} % LaTeX multirow package for table
+\usepackage{titlesec} % LaTeX titlesec package for section title changes
+\usepackage{sectsty} % For section styles
+
+\sectionfont{\centering} % Center section title
 
 \begin{document}
-    \begin{titlepage}\centering
-        \vspace*{\fill}
-        \Huge Čtenářský deník\\
-        \Large Karel Bašta
-        \vspace*{\fill}
-    \end{titlepage}
+    \pagenumbering{gobble} % Remove page numbers
 
-    \renewcommand\contentsname{Obsah}
-    \tableofcontents % Basic table of content
+    \section*{Seznam maturitní četby}
+        \begin{center}
+            \Large Karel Bašta - V4D
+        \end{center}
+        \subsection*{A)	Česká a světová literatura do konce 18. století - 2}
+            \begin{enumerate}
+                \item Molière: Lakomec
+                \item Shakespeare, William: Romeo a Julie
+            \end{enumerate}
+        \subsection*{B)	Česká a světová literatura do konce 19. století - 7}
+            \begin{enumerate}
+                \setcounter{enumi}{2}
+                \item Borovský, Karel Havlíček: Král Lávra
+                \item Erben, Karel Jaromír: Kytice
+                \item Maupassant, Guy de: Kulička
+                \item Mrštíkové, A. a V.: Maryša
+                \item Puškin, Alexandr Sergejevič: Piková dáma
+                \item Stevenson, Robert Louis: Ostrov pokladů
+                \item Vrchlický, Jaroslav: Noc na Karlštejně
+            \end{enumerate}
+        \subsection*{C)	Světová literatura 20. a 21. století - 5}
+            \begin{enumerate}
+                \setcounter{enumi}{9}
+                \item Christie, Agatha: Vražda v Orient expresu
+                \item Orwell, George: Farma zvířat
+                \item Saint-Exupéry, Antoine de: Malý princ
+                \item Steinbeck, John: O myších a lidech
+                \item Tolkien, John Ronald Reuel: Hobit
+            \end{enumerate}
+        \subsection*{D)	Česká literatura 20. a 21. století - 6}
+            \begin{enumerate}
+                \setcounter{enumi}{14}
+                \item Čapek, Karel: Bílá Nemoc
+                \item Dousková, Irena: Hrdý Budžes
+                \item Fuks, Ladislav: Spalovač mrtvol
+                \item Jirotka, Zdeněk: Saturnin
+                \item Nezval, Vítězslav: Edison
+                \item Smoljak, Ladislav a Svěrák, Zdeněk: Hospoda na mýtince
+            \end{enumerate}
+
     \newpage
-
+    \import{CJL/Lakomec}{Lakomec.tex}
+    \newpage
+    \import{CJL/Romeo a Julie}{Romeo a Julie.tex}
+    \newpage
+    \import{CJL/Král Lávra}{Král Lávra.tex}
+    \newpage
+    \import{CJL/Kytice}{Kytice.tex}
+    \newpage
     \import{CJL/Kulička}{Kulička.tex}
+    \newpage
+    \import{CJL/Maryša}{Maryša.tex}
+    \newpage
+    \import{CJL/Piková dáma}{Piková dáma.tex}
+    \newpage
+    \import{CJL/Ostrov pokladů}{Ostrov pokladů.tex}
+    \newpage
+    \import{CJL/Noc na Karlštejně}{Noc na Karlštejně.tex}
+    \newpage
+    \import{CJL/Vražda v Orient expresu}{Vražda v Orient expresu.tex}
+    \newpage
+    \import{CJL/Farma zvířat}{Farma zvířat.tex}
+    \newpage
+    \import{CJL/Malý princ}{Malý princ.tex}
+    \newpage
+    \import{CJL/O myších a lidech}{O myších a lidech.tex}
+    \newpage
+    \import{CJL/Hobit}{Hobit.tex}
+    \newpage
+    \import{CJL/Bílá Nemoc}{Bílá Nemoc.tex}
+    \newpage
+    \import{CJL/Hrdý Budžes}{Hrdý Budžes.tex}
+    \newpage
+    \import{CJL/Spalovač mrtvol}{Spalovač mrtvol.tex}
+    \newpage
+    \import{CJL/Saturnin}{Saturnin.tex}
+    \newpage
+    \import{CJL/Edison}{Edison.tex}
+    \newpage
+    \import{CJL/Hospoda na mýtince}{Hospoda na mýtince.tex}
+    \newpage
 \end{document}

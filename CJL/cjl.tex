@@ -1,4 +1,7 @@
 \documentclass[a4paper,12pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{import}
+
 \begin{document}
     \begin{titlepage}\centering
         \vspace*{\fill}
@@ -9,8 +12,7 @@
 
     \renewcommand\contentsname{Obsah}
     \tableofcontents % Basic table of content
-    \thispagestyle{empty}
     \newpage
 
-    \import {Kulička/kulička}
+    \import{Kulička}{Kulička.tex}
 \end{document}

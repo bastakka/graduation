@@ -28,4 +28,10 @@ jobs:
       - name: Compile LaTeX document
         uses: xu-cheng/latex-action@v2
         with:
-          root_file: CJL/cjl.tex
+          root_file: CJL/cjl.tex | AUT/aut.tex | TVY-POS/tvy-pos.tex
+      - name: Release
+        uses: softprops/action-gh-release@v1
+        if: startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            CJL/cjl.pdf

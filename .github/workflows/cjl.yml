@@ -33,5 +33,5 @@ jobs:
       - name: Upload document
         uses: actions/upload-artifact@v2
         with:
-          name: PDF
+          name: CJL
           path: cjl.pdf

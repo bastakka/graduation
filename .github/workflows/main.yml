@@ -29,8 +29,8 @@ jobs:
         uses: xu-cheng/latex-action@v2
         with:
           root_file: cjl.tex
-      - name: Release
-        uses: softprops/action-gh-release@v1
+      - name: Upload documents
+        uses: actions/upload-artifact@v2
         with:
-          files: |
-            cjl.pdf
+          name: PDFs
+          path: cjl.pdf

@@ -1,0 +1,48 @@
+\documentclass[11pt]{article}
+\usepackage[a4paper, total={7in, 10in}]{geometry} % Border sizes
+\usepackage[T1]{fontenc} % LaTeX default font encoding 
+\usepackage{multirow} % LaTeX multirow package for table
+\usepackage{titlesec} % LaTeX titlesec package for section title changes
+\usepackage{sectsty} % For section styles
+\usepackage{multicol} % For multi-column tables
+\usepackage{graphicx} % For images
+
+\sectionfont{\centering} % Center section title
+
+\begin{document}
+    \pagenumbering{gobble} % Remove page numbers
+    
+    \section*{Maturitní otázky TVY+POS}
+        \begin{center}
+            \Large Karel Bašta - V4D
+        \end{center}
+        \begin{enumerate}
+            \item ISO-OSI (význam a popis), TCP/IP (význam, popis, vztah k ISO/OSI)
+            \item Polovodičové paměti (základní rozdělení, realizace buňky statické a dynamické paměti, R/W cyklus vybrané buňky)
+            \item VLAN (popis, struktura, činnost a návaznost na zařízení síťové vrstvy, konfigurace, subinterface, zapouzdření), význam a výhody ve vztahu k provozu na síti
+            \item Číselné soustavy, převody (celá a desetinná čísla), čísla v pohyblivé čárce (kódování)
+            \item Fyzická vrstva (optické kabely, metalické kabely, WiFi) a zařízení
+            \item Paměti s technologií EEPROM, FLASH a SSD (princip, vícestavové ukládání, srovnání)
+            \item Linková vrstva (MAC adresa a přepínaní, zařízení)
+            \item Adresné módy běhu CPU (real/virtual real/protected/long, základní funkčnost, použití); výpočet adres v protected módu (fyzická/virtuální adresa, segmentování, princip výpočtu adres)
+            \item Síťová vrstva (IP adresa, směrování a zařízení)
+            \item Motherboard (blokové schéma, účel, význam, podpůrné obvody)
+            \item Optická zařízení (druhy, princip činnosti) 
+            \item IPv4 adresace (classfull/classless adresace, maska, číslo sítě/ hostitele speciální adresy)
+            \item Moderní CPU s integrovanými podpůrnými technologiemi (MMU- blokové schéma a využití, MMX technologie, pipelining, branch prediction)
+            \item Vytváření podsítí v IPv4 (subnetting, VLSM, princip a použití)
+            \item Logické členění paměti podle určení (konvenční paměť, segment, offset, page, virtuální/fyzická adresa, cache, buffer)
+            \item IPv6 adresace (zápis, základní skupiny, pravidla, příklady)
+            \item Činnost CPU při zpracování přerušení, DMA a podprogramu (význam, použití a rozdíly)
+            \item Dynamické směrovací protokoly (rozdělení, druhy, vlastnosti a použití)
+            \item Laserové a LED tiskárny (principy a technologie tisku, vlastnosti tiskáren)
+            \item Rozdělení sítí podle rozsahu (PAN, LAN, WAN a topologie)
+            \item Výstupní zobrazovací zařízení (CRT, plazmové, LCD a OLED monitory a projektory - princip)
+            \item Hrozby na síti (viry, malware, formy a účel útoků)
+            \item Aritmetické operace v počítači (operace s celými a racionálními čísly, součet/rozdíl, násobení/dělení, základní algoritmy)
+            \item FW a ochrany jednotlivých vrstev TCP/IP (principy funkčnosti a nastavení, praktické příklady realizace)
+            \item Vstupní zařízení (klávesnice, tablety, světelná pera, myši - princip činnosti)
+        \end{enumerate}
+
+        \include{TVY-POS/ISO-OSI-TCP-IP/ISO-OSI-TCP-IP.tex}
+\end{document}

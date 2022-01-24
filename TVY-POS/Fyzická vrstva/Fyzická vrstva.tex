@@ -1,42 +1,42 @@
 \section{Fyzická vrstva}
-  Zajišťuje fyzické spojení obou stran.
-  Patří do ní kabeláž, HW, konektory aj.
-  Komunikace probíhá oběžníkovým způsobem a je řízena Linkovou vrstvou.
-  Definuje fyzické, elektrické, mechanické a funkční parametry fyzického propojení.
-  Přenáší se samotné Bity převodem bitů na signál ať už elektrický či vlnový.\\
-  \begin{description}
-    \item[Analogový okruh]- jednodušší, nižší rychlosti, menší odolnost proti rušení, asynchronní i synchronní, nižší cena
-    \item[Digitální okruh]- komunikace synchronní, odolnost proti rušení, komfort vzdáleného řízení linky, využívá stejná média\\
-  \end{description}
-  \subsection{HW}
-    Spojení může poskytnout:
-    \begin{itemize}
-      \item Optický kabel - možnost využití jiných barev pro více linek
-      \item Metalický kabel - Koax, Kroucená dvojlinka
-      \item Wi-Fi, Bluetooth, Rádio - Pomocí protokolu IEEE 802.11 aj.\\
-    \end{itemize}
-    Zařízení pracující na fyzické vrstvě:
-    \begin{description}
-      \item[Opakovač]- Regeneruje signál a elektricky odděluje segmenty
-      \item[HUB]- Navyšuje konektivitu, regeneruje signál, rozvětvuje signál do více výstupů\\
-    \end{description}
-  \subsection{Synchronní přenos}
-    Používán pro přenosy, kde je vyžadována garance rychlosti přenosu (zvuk, video..) tk. zajištěna požadovaná šíře pásma.
-    Při komunikaci se musí přenášet synchronizační signál, tzv. hodiny CLK ze zdroje hodin, udává ho jenom jedna ze stran komunikace.
-    Signál CLK může jít po vlastním vodiči, nebo jedním společným fyzickým kanálem (vkomponován s daty).
-  \subsection{Asynchronní přenos}
-    Používán pro přenosy, kde je vyžadována jednoduchost komunikace a její široká přizpůsobitelnost.
-    Způsob synchronizace je prováděn v datovém toku tzv. služebními signály.
-    Signál CLK není obsažen ve vlastním datovém toku, jelikož si ho každá strana vytváří sama.
-    Vzorkovací signál CLK je asi 10x vyšší než přenosová rychlost.
-    Přenos dat i propustnost je nižší než u synchronního.
-    Data jsou dávkována mezi START bitem a STOP bitem.
-  \subsection{Asymterický signál}
-    Signál je na jedné svorce zpravidla na společný vodič (GND).
-    Rušící signál vytváří zdroj poruch a snižování spolehlivosti přenosu.
-    Přenosové médium vyžaduje proto odstínění proti rušivým signálů (koax\dots)
-  \subsection{Symetrický signál}
-    Signál je šířen symetricky po obou vodičích v opačné polaritě.
-    Rušící signál vytváří na obou vodičích rušení stejné polarity.
-    Výstupní signál je dán rozdílem signálu v obou vodičích.
-    Lze použít levnější přenosové médium a překlenout větší vzdálenosti.
+Zajišťuje fyzické spojení obou stran.
+Patří do ní kabeláž, HW, konektory aj.
+Komunikace probíhá oběžníkovým způsobem a je řízena Linkovou vrstvou.
+Definuje fyzické, elektrické, mechanické a funkční parametry fyzického propojení.
+Přenáší se samotné Bity převodem bitů na signál ať už elektrický či vlnový.\\
+\begin{description}
+  \item[Analogový okruh]- jednodušší, nižší rychlosti, menší odolnost proti rušení, asynchronní i synchronní, nižší cena
+  \item[Digitální okruh]- komunikace synchronní, odolnost proti rušení, komfort vzdáleného řízení linky, využívá stejná média\\
+\end{description}
+\subsection{HW}
+Spojení může poskytnout:
+\begin{itemize}
+  \item Optický kabel - možnost využití jiných barev pro více linek
+  \item Metalický kabel - Koax, Kroucená dvojlinka
+  \item Wi-Fi, Bluetooth, Rádio - Pomocí protokolu IEEE 802.11 aj.\\
+\end{itemize}
+Zařízení pracující na fyzické vrstvě:
+\begin{description}
+  \item[Opakovač]- Regeneruje signál a elektricky odděluje segmenty
+  \item[HUB]- Navyšuje konektivitu, regeneruje signál, rozvětvuje signál do více výstupů\\
+\end{description}
+\subsection{Synchronní přenos}
+Používán pro přenosy, kde je vyžadována garance rychlosti přenosu (zvuk, video..) tk. zajištěna požadovaná šíře pásma.
+Při komunikaci se musí přenášet synchronizační signál, tzv. hodiny CLK ze zdroje hodin, udává ho jenom jedna ze stran komunikace.
+Signál CLK může jít po vlastním vodiči, nebo jedním společným fyzickým kanálem (vkomponován s daty).
+\subsection{Asynchronní přenos}
+Používán pro přenosy, kde je vyžadována jednoduchost komunikace a její široká přizpůsobitelnost.
+Způsob synchronizace je prováděn v datovém toku tzv. služebními signály.
+Signál CLK není obsažen ve vlastním datovém toku, jelikož si ho každá strana vytváří sama.
+Vzorkovací signál CLK je asi 10x vyšší než přenosová rychlost.
+Přenos dat i propustnost je nižší než u synchronního.
+Data jsou dávkována mezi START bitem a STOP bitem.
+\subsection{Asymterický signál}
+Signál je na jedné svorce zpravidla na společný vodič (GND).
+Rušící signál vytváří zdroj poruch a snižování spolehlivosti přenosu.
+Přenosové médium vyžaduje proto odstínění proti rušivým signálů (koax\dots)
+\subsection{Symetrický signál}
+Signál je šířen symetricky po obou vodičích v opačné polaritě.
+Rušící signál vytváří na obou vodičích rušení stejné polarity.
+Výstupní signál je dán rozdílem signálu v obou vodičích.
+Lze použít levnější přenosové médium a překlenout větší vzdálenosti.

@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage[a4paper, total={7in, 10in}]{geometry} % Border sizes
 \usepackage[T1]{fontenc} % LaTeX default font encoding 
 \usepackage{multirow} % LaTeX multirow package for table
@@ -6,9 +6,13 @@
 \usepackage{sectsty} % For section styles
 \usepackage{multicol} % For multi-column tables
 \usepackage{graphicx} % For images
-\usepackage{setspace}
+\usepackage{gensymb} % For degree /degree
+\usepackage{charter} % use the charter font
+\usepackage{enumitem} % Enumerated item list
+\usepackage{setspace} 
 
 \sectionfont{\centering} % Center section title
+\def\svgwidth{\columnwidth} % Set width of svg images to column width
 
 \begin{document}
     \pagenumbering{gobble} % Remove page numbers
@@ -17,6 +21,7 @@
         \begin{center}
             \Large Karel Bašta - V4D
         \end{center}
+        
         \setstretch{0.9}
         \begin{enumerate}
             \item DSP - co je to, oblasti využití (průzkum, zdravotnictví, zvuk, video apod.)
@@ -45,5 +50,7 @@
             \item Sběrnice I2C a 1-Wire - popis, protokol, rychlost, zapojení a využití
             \item Arduino - práce s EEPROM dle přiložených propozic k úloze
         \end{enumerate}
+
         \setstretch{1}
+        \setlist{nolistsep} % No list separator
 \end{document}

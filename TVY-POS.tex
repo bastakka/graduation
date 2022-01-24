@@ -1,4 +1,4 @@
-\documentclass[11pt]{article}
+\documentclass[a4paper,11pt]{article}
 \usepackage[a4paper, total={7in, 10in}]{geometry} % Border sizes
 \usepackage[T1]{fontenc} % LaTeX default font encoding 
 \usepackage{multirow} % LaTeX multirow package for table
@@ -6,8 +6,12 @@
 \usepackage{sectsty} % For section styles
 \usepackage{multicol} % For multi-column tables
 \usepackage{graphicx} % For images
+\usepackage{gensymb} % For degree /degree
+\usepackage{charter} % use the charter font
+\usepackage{enumitem} % Enumerated item list
 
 \sectionfont{\centering} % Center section title
+\def\svgwidth{\columnwidth} % Set width of svg images to column width
 
 \begin{document}
     \pagenumbering{gobble} % Remove page numbers
@@ -43,5 +47,12 @@
             \item FW a ochrany jednotlivých vrstev TCP/IP (principy funkčnosti a nastavení, praktické příklady realizace)
             \item Vstupní zařízení (klávesnice, tablety, světelná pera, myši - princip činnosti)
         \end{enumerate}
+
+        \setlist{nolistsep} % No list separator
         \include{TVY-POS/ISO-OSI-TCP-IP/ISO-OSI-TCP-IP.tex}
+        \include{TVY-POS/Fyzická vrstva/Fyzická vrstva.tex}
+        \include{TVY-POS/Síťová vrstva/Síťová vrstva.tex}
+        \include{TVY-POS/Motherboard/Motherboard.tex}
+        \include{TVY-POS/Laserové a LED tiskárny/Laserové a LED tiskárny.tex}
+        \include{TVY-POS/Vstupní zařízení/Vstupní zařízení.tex}
 \end{document}

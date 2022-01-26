@@ -1,0 +1,42 @@
+\section{Síťová vrstva}
+Zajišťuje přenos dat mezi vzdálenými počítači (WAN).
+Klíčovým prvkem v této komunikaci je směrovač (router).
+Každý takový směrovač má svoji jednoznačnou identifikaci v rámci WAN (IP Adresu).
+Přenáší se IP datagramy neboli pakety. Nezajímá se o protokoly linkové a fyzické vrstvy.\\
+Funkce síťové vrstvy:
+\begin{itemize}
+  \item Hledání cesty pro pakety mezi libovolnými dvěma uzly v síti
+  \item Nestará o spolehlivost, ale o co nejrychlejší přenos dat
+  \item Zajistění postupného přenosu paketů přes mezilehlé uzly v cestě
+  \item Přenosový protokol IP se snaží zakrývat rozdíly v technologiích nižší vrstvy
+\end{itemize}
+Cesta paketu:
+\begin{enumerate}
+  \item Zabalení přenášeného paketu do rámce
+  \item Prostřednictvím vrstvy síťového rozhraní předání rámce přímému sousedovi
+  \item V sousedním uzlu přijmutí a rozbalení rámce vrstvou síťového rozhraní
+  \item Předání získaného paketu své síťové vrstvě, která najde nejvhodnější cestu k cíli
+  \item Prostřednictvím vrstvy síťového rozhraní zaslání rámce k dalšímu uzlu
+\end{enumerate}
+\subsection{Směrování}
+Technika k vnitřnímu rozčlenění rozsáhlých sítí LAN i MAN.\\
+Běžně se používá jako proces šíření globální síťové komunikace v Internetu.\\
+Účely směrování:
+\begin{itemize}
+  \item Usměrnění komunikace
+  \item Optimalizace zátěže sítě
+  \item Implementace bezpečnosti
+  \item Zvýšení spolehlivosti na síťové vrstvě
+\end{itemize}
+\begin{description}
+  \item[Statické]je nastaveno pevně administrativně - DHCP
+  \item[Dynamické]je pravidelně aktuailzováno speciálními protokoly - Mnoho
+\end{description}
+\subsection{IP Adresace}
+Každá síťová stanice musí mít pevně stanovenou identifikaci - IP adresu.
+Ta je buďto napevno přidělena nebo dynamicky přidělována.
+V současné době se využívá IPv4 adresa o velikosti 32bitů.
+Tato IP adresa má v sobě zahrnuté jak číslo sítě, tak číslo stanice.
+Tvar adresy je \[XXX.XXX.XXX.XXX\]
+V každé síti musí být jedinečný router, který síť propojuje pomocí směrování. IP adresa hostitele a routeru musí být odlišná.\\
+Jiné protkoly dostupné pro síťovou vrstvu: ICMP - Internet Control Message Protocol (Řešení problémů IP, ping\dots), IGMP, ARP, RARP.

@@ -15,7 +15,7 @@ Parametry pamětí:
 \subsection{Základní rozdělení}
 \subsubsection{ROM - Read Only Memory}
 \begin{multicols}{2}
-    Z paměti lze pouze číst. 
+    Z paměti lze pouze číst.
     Obsah paměti se po vypnutí napětí neztrácí.
     Vyrábí se pomocí speciální metalické masky.
     Jsou drahé.
@@ -24,18 +24,18 @@ Parametry pamětí:
     Dále mohou být realizované pomocí tranzistorů buďto TTL nebo MOS.
     Paměti realizované tímto způsobem jsou připojené na adresný vodič, což znamená logickou 0 na výstpupu, či naopak.
     \columnbreak
-    
-    \includegraphics[width=\linewidth]{TVY-POS/Polovodičové paměti/ROM.png}
+
+    \includegraphics[width=\linewidth]{TVY-POS/Polovodicove-pameti/ROM.png}
 \end{multicols}
 \begin{multicols}{2}
     \begin{center}
-      TTL \\
-      \includegraphics[width=1.2\linewidth]{TVY-POS/Polovodičové paměti/ROMTTL.png}
+        TTL \\
+        \includegraphics[width=1.2\linewidth]{TVY-POS/Polovodicove-pameti/ROMTTL.png}
     \end{center}
     \columnbreak
     \begin{center}
-      MOS \\
-      \includegraphics[width=1.2\linewidth]{TVY-POS/Polovodičové paměti/ROMMOS.png}
+        MOS \\
+        \includegraphics[width=1.2\linewidth]{TVY-POS/Polovodicove-pameti/ROMMOS.png}
     \end{center}
 \end{multicols}
 \subsubsection{RWM - Read Write Memory}
@@ -50,7 +50,7 @@ Realizované pomocí níže uvedených technologií.
     Vyrábí se podobně jako paměti ROM, akorát se všechny spoje vyrobí jako spojené pomocí pojistky z Niklu a Chromu (NiCr)\\
     \columnbreak
 
-    \includegraphics[width=0.7\linewidth]{TVY-POS/Polovodičové paměti/PROM.png}
+    \includegraphics[width=0.7\linewidth]{TVY-POS/Polovodicove-pameti/PROM.png}
 \end{multicols}
 Existují i paměti PROM realizované pomocí bipolárních multiemitorových tranzistorů, které fungují na opačné logice.
 \begin{multicols}{2}
@@ -83,7 +83,7 @@ Dělí se na dynamické a statické
     V dnešní době se používají pro paměti typu cache.
     \columnbreak
 
-    \includegraphics[width=0.8\linewidth]{TVY-POS/Polovodičové paměti/SRAMM.png}
+    \includegraphics[width=0.8\linewidth]{TVY-POS/Polovodicove-pameti/SRAMM.png}
 \end{multicols}
 Při zápisu na adresový vodič se umístí hodnota log. 1, na DATA se přivede zapisovaná hodnota a podle hodnoty se otevřou a zavřou určité tranzistory.
 Při čtení se opět na adresný vodič přivede log. 1 a podle stavů tranzisorů se na vodiči \textoverline{DATA} obdrží opačná hodnota buňky.
@@ -96,17 +96,17 @@ Náboj má tendenci se vybíjet i když je pamět připojena k el. napájení, p
     Čtení probíbá desktruktivně, což znamená že se po čtení musí informace opět zapsat.
     Po přivedení log. 1 na adresný vodič se podle stavu buďto vybije náboj v kondenzátoru, kterého náboj se převede na Datový vodič a nebo ne.\\
     \columnbreak
-        
-    \includegraphics[width=0.8\linewidth]{TVY-POS/Polovodičové paměti/DRAM.png}
+
+    \includegraphics[width=0.8\linewidth]{TVY-POS/Polovodicove-pameti/DRAM.png}
 \end{multicols}
 Mezi výhody patří jednoduchost a nízké výrobní náklady, zároveň pamět dovoluje vysokou integraci.
 V dnešní době se používají pro operační paměti.
 Nevýhodou je vyšší přístupová doba (~70ns) a nutnost provádět refresh.
 Existují různé druhy DRAM:
 \begin{description}
-    \item[SDRAM]- používali se dříve, pracují na stejném taktu jako sběrnice 
+    \item[SDRAM]- používali se dříve, pracují na stejném taktu jako sběrnice
     \item[DDR]- přenášejí data na obou hranách hodin
-    \item[DDR2]- pracují s polovniční vnitří frekvenci 
+    \item[DDR2]- pracují s polovniční vnitří frekvenci
     \item[RDRAM]- používá menší sběrnici, měla umožnit využití větší počet kanálů
     \item[CMOS-RAM]- mají malou spotřebu, zapisují se do nich parametry BIOSu. Po vypnutí PC se napájí pomocí baterie Li-ion většinou z obvodu hodin reálného času na MB.
 \end{description}
@@ -127,5 +127,5 @@ Při použití k uložení BIOSu, tak se BIOS dá aktualizovat.
     U zápisu je dána opět adresa místa, kam se bude zapisovat, poté se nastaví hodnoty jednotlivých bitů a zapíšou se.\\
     \columnbreak
 
-    \includegraphics[width=0.9\linewidth]{TVY-POS/Polovodičové paměti/memorystructure.png}
+    \includegraphics[width=0.9\linewidth]{TVY-POS/Polovodicove-pameti/memorystructure.png}
 \end{multicols}

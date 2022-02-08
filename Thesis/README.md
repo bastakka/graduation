@@ -334,7 +334,7 @@ Pro jednodušší a pohodlnější práci v linuxovém prostředí byly nainstal
 
 #### Git
 
-Škálovatelý program pro správu verzí projektu. Umožňuje klonovat projekty z internetu a za pomocí protkolu `ssh` nebo `http` zaručuje bezpečný přenos i soukromých projektů do vlastních repozitářů. Obsahuje velké množství možností, ať už podpis verzí projektů pomocí `gpg` klíče nebo řešení rozdílů mezi verzemi od více lidí. Bude použit hlavně pro klonování projektů ze serveru `github.com`
+Škálovatelý program pro správu verzí projektu. Umožňuje klonovat projekty z internetu a za pomocí protkolu `ssh` nebo `http` zaručuje bezpečný přenos i soukromých projektů do vlastních repozitářů. Obsahuje velké množství možností, ať už podpis verzí projektů pomocí osobních klíčů nebo řešení rozdílů mezi verzemi od více lidí. Bude použit hlavně pro klonování projektů ze serveru `github.com`
 
 ```bash
 administrator@Jeff:~$ sudo apt update

@@ -1,0 +1,7 @@
+[Unit]
+Description=Nextcloud cron.php job
+
+[Service]
+User=www-data
+ExecStart=php8.0 --define apc.enable_cli=1 -f /var/www/nextcloud/cron.php
+KillMode=process

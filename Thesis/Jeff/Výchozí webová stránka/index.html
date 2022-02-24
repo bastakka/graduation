@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="cs" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    * { box-sizing: border-box; }
+    body {
+      background: #1c1c1c; color: #c1c1c1;
+      font-family: sans-serif;
+      font-size: x-large;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    nav {
+      width: 100%;
+    }
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+    }
+    li > a {
+      display: block;
+      color: #c1c1c1;
+      text-decoration: none;
+      padding: 1rem;
+      margin: 0.5rem;
+      transition: all 0.3s ease;
+      clear: both;
+    }
+    li > a > h2 {
+      margin-top: 0;
+      margin-block-end: 1rem;
+    }
+    li > a > img {
+      height: auto;
+      width: 16rem;
+      fill: currentColor;
+      margin-right: 1rem;
+      float: left;
+      margin-bottom: 0.8rem;
+    }
+    li > a > p {
+      margin-block-start: 0;
+    }
+    nav {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: calc(1140px + 8vw);
+      padding-left: 4vw;
+      padding-right: 4vw;
+      width: 100%;
+    }
+    </style>
+    <title>Jeff</title>
+  </head>
+  <body>
+    <h1>Jeff</h1>
+    <nav><ul>
+    <li><a href="/pcms">
+        <img src="images/pcms.svg">
+        <h2>PCMS</h2>
+        <p>Webové stránky!</p>
+      </a></li>
+
+      <li><a href="/pcms_internal">
+        <img src="images/pcms.svg">
+        <h2>PCMS Internal</h2>
+        <p>Webové stránky pro studenty a zaměstnance</p>
+      </a></li>
+
+      <li><a href="/static">
+        <img src="images/folder.png">
+        <h2>Repo</h2>
+        <p>Věřejný repositář pro studijní materiály</p>
+      </a></li>
+
+      <li><a href="/nextcloud">
+        <img src="images/nextcloud.png">
+        <h2>Nextcloud</h2>
+        <p>Cloudové úložiště pro studetny a zaměstnance</p>
+      </a></li>
+
+      <li><a href="/pcms_admin">
+        <img src="images/pcms.svg">
+        <h2>PCMS Admin</h2>
+        <p>Správa a údržba webových stránek</p>
+      </a></li>
+
+      <li><a href="/admin">
+        <img src="images/cockpit.png">
+        <h2>Cockpit</h2>
+        <p>Správa a údržba počítače</p>
+      </a></li>
+
+      <li><a href="/status">
+        <img src="images/server-traffic.png">
+        <h2>Status</h2>
+        <p>Monitoring provoru webového serveru</p>
+      </a></li>
+    </ul></nav>
+  </body>
+</html>

@@ -1,1 +1,41 @@
 \section{Arduino - programování s využitím knihoven}
+\lstset{language=C,
+    keywordstyle=\color{blue},
+    stringstyle=\color{red},
+    commentstyle=\color{green},
+    morecomment=[l][\color{magenta}]{\#}
+}
+\begin{lstlisting}
+    #include <PreciseLM35.h>
+    #include "mf_Shield.h"
+        
+    byte segment[4];
+    const int pinLM35 = A4;
+        
+    PreciseLM35 lm35(pinLM35, DEFAULT);
+    Mf_Shield S;
+        
+    void setup() {
+        pinMode(A4, INPUT);    
+    }
+        
+    void loop() {
+        float tmpVal = lm35.readCelsius();
+        int val = (int) (tmpVal * 10);
+        
+        segment[0]=(byte)(val/100)%10;
+        segment[1]=(byte)(val/10)%10;
+        segment[2]=(byte)(val%10);
+        segment[3]=0x0C;  //code for "C" letter
+        
+        S.writeToSegm(0,segment[0],false);
+        delay(4); 
+        S.writeToSegm(1,segment[1],true);
+        delay(4);
+        S.writeToSegm(2,segment[2],false);
+        delay(4);
+        S.writeToSegm(3,segment[3],false);
+        delay(4);
+    }
+
+\end{lstlisting}

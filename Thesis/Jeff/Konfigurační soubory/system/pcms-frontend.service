@@ -8,7 +8,6 @@ Group=www-data
 
 Environment=PORT=6530
 Environment=NODE_ENV=production
-Envrionment=NODE_TLS_REJECT_UNAUTHORIZED=0
 
 WorkingDirectory=/srv/sspbrnoweb-monorepo
 ExecStart=/usr/bin/env pnpm start:frontend

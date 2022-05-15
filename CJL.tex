@@ -9,10 +9,22 @@
 \usepackage{tabularx} % For tables
 \usepackage{csquotes} % for Czech quotes
 \usepackage{hyperref} % For hyperlinks across the PDF
+\usepackage{fancyhdr} % For headers and footers
+\usepackage[bottom,norule]{footmisc} % For footnotes
+
+% footnote in footer
+\newcommand{\fancyfootnotetext}[2]{%
+  \fancypagestyle{dingens}{%
+    \fancyfoot[LO,RE]{\parbox{12cm}{\footnotemark[#1]\footnotesize #2}}%
+  }%
+  \thispagestyle{dingens}%
+}
+
 \DeclareQuoteAlias{german}{czech} % For Czech quotes
 \MakeOuterQuote{"} % For Czech quotes
 
 \sectionfont{\centering} % Center section title
+\pagestyle{fancy} % Fancy page style
 
 \begin{document}
 \pagenumbering{gobble} % Remove page numbers

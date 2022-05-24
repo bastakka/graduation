@@ -1,0 +1,11 @@
+linux
+administrator:NU32fEyzTCjsjZvC
+db
+nextcloud:gfMa2qZ44ewHyhpP
+pcms:UUgrZEBRxnCKUV2p
+nextcloud
+administrator:jNqJWBz9Ltvvne6X
+vts
+administrator:ch2Z7aUJSrMAynCK
+pcms
+purkynka:shei4jahquo8vi2M

@@ -10,48 +10,63 @@
 \usepackage{gensymb} % For degree /degree
 \usepackage{charter} % use the charter font
 \usepackage{enumitem} % Enumerated item list
-\usepackage{tabularx}
-\usepackage{csquotes}
-\DeclareQuoteAlias{german}{czech}
-\MakeOuterQuote{"}
+\usepackage{tabularx} % For tables
+\usepackage{hyperref} % For hyperlinks across the PDF
+\usepackage{csquotes} % for Czech quotes
+\usepackage{fancyhdr} % For headers and footers
+\usepackage[bottom,norule]{footmisc} % For footnotes
+
+% footnote in footer
+\newcommand{\fancyfootnotetext}[2]{%
+  \fancypagestyle{dingens}{%
+    \fancyfoot[LO,RE]{\parbox{12cm}{\footnotemark[#1]\footnotesize #2}}%
+  }%
+  \thispagestyle{dingens}%
+}
+
+\DeclareQuoteAlias{german}{czech} % for Czech quotes
+\MakeOuterQuote{"} % for Czech quotes
 
 \sectionfont{\centering} % Center section title
 \def\svgwidth{\columnwidth} % Set width of svg images to column width
 \newcommand{\textoverline}[1]{$\overline{\mbox{#1}}$} % For overline on text
+
+\sectionfont{\centering} % Center section title
+\pagestyle{fancy} % Fancy page style
 
 \begin{document}
 \pagenumbering{gobble} % Remove page numbers
 
 \section*{Maturitní otázky TVY+POS}
 \begin{center}
-    \Large Karel Bašta - V4D
+  \Large Karel Bašta - V4D
 \end{center}
 \begin{enumerate}
-    \item ISO-OSI (význam a popis), TCP/IP (význam, popis, vztah k ISO/OSI)
-    \item Polovodičové paměti (základní rozdělení, realizace buňky statické a dynamické paměti, R/W cyklus vybrané buňky)
-    \item VLAN (popis, struktura, činnost a návaznost na zařízení síťové vrstvy, konfigurace, subinterface, zapouzdření), význam a výhody ve vztahu k provozu na síti
-    \item Číselné soustavy, převody (celá a desetinná čísla), čísla v pohyblivé čárce (kódování)
-    \item Fyzická vrstva (optické kabely, metalické kabely, WiFi) a zařízení
-    \item Paměti s technologií EEPROM, FLASH a SSD (princip, vícestavové ukládání, srovnání)
-    \item Linková vrstva (MAC adresa a přepínaní, zařízení)
-    \item Adresné módy běhu CPU (real/virtual real/protected/long, základní funkčnost, použití); výpočet adres v protected módu (fyzická/virtuální adresa, segmentování, princip výpočtu adres)
-    \item Síťová vrstva (IP adresa, směrování a zařízení)
-    \item Motherboard (blokové schéma, účel, význam, podpůrné obvody)
-    \item Optická zařízení (druhy, princip činnosti)
-    \item IPv4 adresace (classfull/classless adresace, maska, číslo sítě/ hostitele speciální adresy)
-    \item Moderní CPU s integrovanými podpůrnými technologiemi (MMU- blokové schéma a využití, MMX technologie, pipelining, branch prediction)
-    \item Vytváření podsítí v IPv4 (subnetting, VLSM, princip a použití)
-    \item Logické členění paměti podle určení (konvenční paměť, segment, offset, page, virtuální/fyzická adresa, cache, buffer)
-    \item IPv6 adresace (zápis, základní skupiny, pravidla, příklady)
-    \item Činnost CPU při zpracování přerušení, DMA a podprogramu (význam, použití a rozdíly)
-    \item Dynamické směrovací protokoly (rozdělení, druhy, vlastnosti a použití)
-    \item Laserové a LED tiskárny (principy a technologie tisku, vlastnosti tiskáren)
-    \item Rozdělení sítí podle rozsahu (PAN, LAN, WAN a topologie)
-    \item Výstupní zobrazovací zařízení (CRT, plazmové, LCD a OLED monitory a projektory - princip)
-    \item Hrozby na síti (viry, malware, formy a účel útoků)
-    \item Aritmetické operace v počítači (operace s celými a racionálními čísly, součet/rozdíl, násobení/dělení, základní algoritmy)
-    \item FW a ochrany jednotlivých vrstev TCP/IP (principy funkčnosti a nastavení, praktické příklady realizace)
-    \item Vstupní zařízení (klávesnice, tablety, světelná pera, myši - princip činnosti)
+  \item \hyperref[sec:isoosi]{ISO-OSI (význam a popis), TCP/IP (význam, popis, vztah k ISO/OSI)}
+  \item \hyperref[sec:polpameti]{Polovodičové paměti (základní rozdělení, realizace buňky statické a dynamické paměti, R/W cyklus vybrané buňky)}
+  \item VLAN (popis, struktura, činnost a návaznost na zařízení síťové vrstvy, konfigurace, subinterface, zapouzdření), význam a výhody ve vztahu k provozu na síti
+  \item Číselné soustavy, převody (celá a desetinná čísla), čísla v pohyblivé čárce (kódování)
+  \item Fyzická vrstva (optické kabely, metalické kabely, WiFi) a zařízení
+  \item Paměti s technologií EEPROM, FLASH a SSD (princip, vícestavové ukládání, srovnání)
+  \item Linková vrstva (MAC adresa a přepínaní, zařízení)
+  \item Adresné módy běhu CPU (real/virtual real/protected/long, základní funkčnost, použití); výpočet adres v protected módu (fyzická/virtuální adresa, segmentování, princip výpočtu adres)
+  \item Síťová vrstva (IP adresa, směrování a zařízení)
+  \item Motherboard (blokové schéma, účel, význam, podpůrné obvody)
+  \item Optická zařízení (druhy, princip činnosti)
+  \item IPv4 adresace (classfull/classless adresace, maska, číslo sítě/ hostitele speciální adresy)
+  \item Moderní CPU s integrovanými podpůrnými technologiemi (MMU- blokové schéma a využití, MMX technologie, pipelining, branch prediction)
+  \item Vytváření podsítí v IPv4 (subnetting, VLSM, princip a použití)
+  \item Logické členění paměti podle určení (konvenční paměť, segment, offset, page, virtuální/fyzická adresa, cache, buffer)
+  \item IPv6 adresace (zápis, základní skupiny, pravidla, příklady)
+  \item Činnost CPU při zpracování přerušení, DMA a podprogramu (význam, použití a rozdíly)
+  \item Dynamické směrovací protokoly (rozdělení, druhy, vlastnosti a použití)
+  \item Laserové a LED tiskárny (principy a technologie tisku, vlastnosti tiskáren)
+  \item Rozdělení sítí podle rozsahu (PAN, LAN, WAN a topologie)
+  \item Výstupní zobrazovací zařízení (CRT, plazmové, LCD a OLED monitory a projektory - princip)
+  \item Hrozby na síti (viry, malware, formy a účel útoků)
+  \item Aritmetické operace v počítači (operace s celými a racionálními čísly, součet/rozdíl, násobení/dělení, základní algoritmy)
+  \item FW a ochrany jednotlivých vrstev TCP/IP (principy funkčnosti a nastavení, praktické příklady realizace)
+  \item Vstupní zařízení (klávesnice, tablety, světelná pera, myši - princip činnosti)
 \end{enumerate}
 
 \setlist{nolistsep} % No list separator

@@ -1,4 +1,5 @@
 \section{VLAN}
+\label{sec:vlan}
 Virtuální LAN slouží k \textbf{logického rozdělení sítě nezávisle na fyzickém uspořádání}.
 Lze tímto síť LAN segmentovat na menší sítě uvnitř \textbf{jedné fyzické struktury}.
 Touto technologií dosáhneme výsledků, jako bychom tyto sítě měli připojené do samostného switche, ale na switchi jednom. \\
@@ -49,7 +50,7 @@ V tomto případě jsou jednotlivé porty switche buďto staticky nebo dynamicky
 \subsubsection{Pomocí více switchů}
 Jestliže požadujeme, aby se informace o zařazení do VLAN mezi switchi neztratila, je nutné využít nějakou metodu zajišťující správný průběh.
 Pokud se využívá rozdělení pomocí MAC adres zařízení, je nutné, aby si switche mezi sebou sdílely databázy MAC adres.
-Firma Cisco si vytvořila vlastný metodu zvanou ISL, která přenásí informace potřebné ke správnému přenosu v rámcích komunikace, funguje ovšem pouze na zařízeních Cisco.
+Firma Cisco si vytvořila vlastní metodu zvanou ISL, která přenásí informace potřebné ke správnému přenosu v rámcích komunikace, funguje ovšem pouze na zařízeních Cisco.
 
 Nejvíce se v dnešní době používá standard IEEE 802.1Q, který značkuje rámce komunikace pouze v případě, že komunikace probíhá v rámci více switchů.
 Tento standard do rámce přidává informaci o zařazení zařízení do VLAN na portu switche a na druhé straně se tato informace rozbalí a rámec se pošle správnému zařízení.

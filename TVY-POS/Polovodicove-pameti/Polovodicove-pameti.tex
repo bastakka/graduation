@@ -39,8 +39,7 @@ Parametry pamětí: \\
 \begin{multicols}{2}\centering
   SRAM
   \includegraphics[width=\linewidth]{TVY-POS/Polovodicove-pameti/SRAM.png}
-  \columnbreak\centering
-
+  \columnbreak\centering\\
   DRAM
   \includegraphics[width=\linewidth]{TVY-POS/Polovodicove-pameti/DRAM.png}
 \end{multicols}
@@ -63,11 +62,11 @@ Parametry pamětí: \\
 \begin{description}
   \item[ROM] - Data jsou zapsána při výrobě paměti. Realizováno vodičem nebo transistorem.
   \item[RWM] - Umožňují minimálně jeden zápis. Lze relizovat pomocí:
-    \begin{itemize}
-      \item PROM - Přepolování drátků. Pouze jeden zápis.
-      \item EPROM - Elektronický zápis a mazání pomocí UV. Možnost více zápisů.
-      \item EEPROM - Elektronický zápis i čtení. Možnost více zápisů.
-    \end{itemize}
+    \begin{description}
+      \item[PROM] - Přepolování drátků. Pouze jeden zápis.
+      \item[EPROM] - Elektronický zápis a mazání pomocí UV. Možnost více zápisů.
+      \item[EEPROM] - Elektronický zápis i čtení. Možnost více zápisů.
+    \end{description}
 \end{description}
 \subsubsection{Podle technolgie}
 \begin{description}
@@ -76,9 +75,9 @@ Parametry pamětí: \\
 \end{description}
 \subsection{R/W Cyklus buňky}
 Vždy je udána adresa paměťového místa, se kterým se pracuje.
-Adresa je přivedena na vstup dekoréru, která podle adresy nastaví adresový vodič na logickou 1.
-Jestliže buňkou na tomto adresném vodiči projde logická 1 na datový vodič, tak je hodnota bitu logická 1.
-V případě že buňkou logická 1 neprojde, pak je hodnota bitu 0.
+Adresa je přivedena na vstup dekoréru, která podle ní nastaví adresový vodič na log. 1.
+Jestliže buňkou na tomto adresném vodiči projde log. 1 na datový vodič, tak je hodnota bitu log. 1. a vice versa.
 U zápisu je dána opět adresa místa, kam se bude zapisovat, poté se nastaví hodnoty jednotlivých bitů a zapíšou se.
-
+Způsob zápisu záleží na technologii buňky.
+Buďto se buňka vypálí, nebo se otevře/zavře transistor, nabije/vybije kondenzátor.\\
 \includegraphics[width=\linewidth]{TVY-POS/Polovodicove-pameti/memorystructure.png}

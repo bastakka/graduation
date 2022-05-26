@@ -15,33 +15,33 @@ Z tohoto důvodu se využívá L3 switchů a routerů schopných komunikaci \tex
 \\
 Důvody pro použití VLAN:
 \begin{itemize}
-    \item \textbf{Seskupování uživatelů} v síti podle skupin či oddělení nebo podle služeb místo podle fyzického umístění a oddělení komunikace mezi těmito skupinami
-    \item \textbf{Snížení broadcast domén} v síti, které začaly být problémem již před několika lety
-    \item \textbf{Zmenšení kolizních domén} v době, kdy se ještě používaly huby
+  \item \textbf{Seskupování uživatelů} v síti podle skupin či oddělení nebo podle služeb místo podle fyzického umístění a oddělení komunikace mezi těmito skupinami
+  \item \textbf{Snížení broadcast domén} v síti, které začaly být problémem již před několika lety
+  \item \textbf{Zmenšení kolizních domén} v době, kdy se ještě používaly huby
 \end{itemize}
 Vhodné rozdělení uživatelů do VLAN:
 \begin{itemize}
-    \item \textbf{Podle organizační struktury} - pokud je většina komunikace v rámci oddělení, kde jsou vlastní tiskárny, file servery, \dots a mezi jednotlivými odděleními není komunikace, pouze pár služeb (mail) je společných pro všechny
-    \item \textbf{Podle služeb} - do VLAN se seskupují pracovníci, kteří využívají stejné služby (Účetnictví, DB, \dots)
+  \item \textbf{Podle organizační struktury} - pokud je většina komunikace v rámci oddělení, kde jsou vlastní tiskárny, file servery, \dots a mezi jednotlivými odděleními není komunikace, pouze pár služeb (mail) je společných pro všechny
+  \item \textbf{Podle služeb} - do VLAN se seskupují pracovníci, kteří využívají stejné služby (Účetnictví, DB, \dots)
 \end{itemize}
 Výhody VLAN:
 \begin{itemize}
-    \item \textbf{Snížení broadcastů} - Vyšší výkon sítě
-    \item \textbf{Zjednodušení správa} - K přesunu zařízení mezi VLAN je možné využít SW konfiguraci, není nutné šahat na HW
-    \item \textbf{Zvýšení zabezpečení} - Oddělení komunikace, ke které poté není přístup
-    \item \textbf{Oddělení speciálního provozu} - Neovlivňuje běžný provoz
-    \item \textbf{Cena} (HW náročnost) - Možné využití jednoho switche pro více VLAN
+  \item \textbf{Snížení broadcastů} - Vyšší výkon sítě
+  \item \textbf{Zjednodušení správa} - K přesunu zařízení mezi VLAN je možné využít SW konfiguraci, není nutné šahat na HW
+  \item \textbf{Zvýšení zabezpečení} - Oddělení komunikace, ke které poté není přístup
+  \item \textbf{Oddělení speciálního provozu} - Neovlivňuje běžný provoz
+  \item \textbf{Cena} (HW náročnost) - Možné využití jednoho switche pro více VLAN
 \end{itemize}
 \subsection{Způsoby zařezení zařízení do VLAN}
 \begin{enumerate}
-    \item \textbf{Podle portu} switche/routeru - Port switche má pevně stanoven jaký port přísluší jaké VLAN.
-    Nejrychlejší a nejpoužívanější řešení.
-    \item \textbf{Podle MAC adresy} zařízení - Switch hledá v databázi MAC adresu připojeného zařízení, podle které určuje do jaké VLAN zařízení připojí.
-    Velmi náročné na výkon a administraci.
-    \item \textbf{Podle protokolu} (Informací z 3. vrstvy) - Oddělení provozu podle IP adres či typu komunikace (AppleTalk)
-    V praxi není příliš rozšířené.
-    \item \textbf{Podle autentizace} - Zařízení se autentizuje pomocí RADIUS serveru a podle údajů se přiřadí do VLAN.
-    Velmi univerzální.
+  \item \textbf{Podle portu} switche/routeru - Port switche má pevně stanoven jaký port přísluší jaké VLAN.
+        Nejrychlejší a nejpoužívanější řešení.
+  \item \textbf{Podle MAC adresy} zařízení - Switch hledá v databázi MAC adresu připojeného zařízení, podle které určuje do jaké VLAN zařízení připojí.
+        Velmi náročné na výkon a administraci.
+  \item \textbf{Podle protokolu} (Informací z 3. vrstvy) - Oddělení provozu podle IP adres či typu komunikace (AppleTalk)
+        V praxi není příliš rozšířené.
+  \item \textbf{Podle autentizace} - Zařízení se autentizuje pomocí RADIUS serveru a podle údajů se přiřadí do VLAN.
+        Velmi univerzální.
 \end{enumerate}
 \subsection{Komunikace v rámci VLAN}
 \subsubsection{Pomocí jednoho switche}

@@ -1,1 +1,34 @@
 \section{Linková vrstva}
+\label{sec:linkova-vrstva}
+Jedná se o druhou nejnižší vrstvu ISO-OSI modelu.
+Zajišťuje integritu toku dat, synchronizuje bloky bitů a přepíná komunikace vzhledem k fyzickým adresám přijímačů.
+Její datovou jednotkou je rámec, který se posílá posílá na většinou určenou MAC adresu.
+\subsection{MAC adresa}
+Každé zařízení má od výroby přiřazenou MAC adresu používanou pro komunikaci na linkové vrstvě.
+Staří verze MAC adres má formát šesti oktetů (FF:FF:FF:FF:FF:FF), nově se používá i formát osmi oktetů (FF:FF:FF:FF:FF:FF:FF).
+Jestliže se posílá informace na adresy ze samých FF, tak se jedná o broadcast.
+První tři oktety adresy určují výrobce zbytek pro samotné zařízení.
+Dále se MAC adresy dělí na:
+\begin{description}
+  \item[Unikátní]- Určené od výrobce
+  \item[Lokální]- Přepsaná administrátorem či softwarem
+\end{description}
+Toto je určeno pomocí předposledního bitu prvního oktetu.
+Poslí byt prvního oktetu určuje jestli se jedná o unicat či multicast.
+\subsection{Zařízení pracující na linkové vrstvě}
+\subsubsection{Bridge}
+Rozděluje síť na dvě části.
+Podle MAC adresy buďto rámec pošle na druhou stranu nebo ho dál nepošle.
+Nepotřebuje konfigurovat, jelikož si sám ukládá kde daná MAC adresa leží po prvním zjištění pomocí broadcastu.
+\subsubsection{Switch}
+Nahrazuje HUBy.
+Dal by se nazvat jako bridge s více porty.
+Propojuje jednotlivé prvky do hvězdicové topologie.
+Má tabulku se seznamem MAC adres připadajících na port a podle toho rozesílá data.
+Existují i L3 switche, které dokáží rozesílat data i podle IP adres.
+K přenosu rámců switch používá tři způsoby:
+\begin{description}
+  \item[Flooding]- Rámec z jednoho portu je přenesen na všechny ostatní porty.
+  \item[Forwarding]- Rámec předá pouze portu podle určené MAC adresy.
+  \item[Filtering]- Switch přijme rámec na kterém je cílová MAC adresa na stejném portu jako port, ze kterého rámec přišel a tak rámec zahodí.   
+\end{description}

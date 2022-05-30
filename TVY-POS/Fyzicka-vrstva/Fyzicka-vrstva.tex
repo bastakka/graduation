@@ -1,42 +1,70 @@
 \section{Fyzická vrstva}
+\label{sec:fyzicka-vrstva}
+Jedá se o nijižší vrstvu ISO-OSI modelu.
 Zajišťuje fyzické spojení obou stran.
-Patří do ní kabeláž, HW, konektory aj.
+Patří do ní kabeláž, HW, konektory, vysílače, příjimače aj.
+Definuje elektrické, mechanické, optické a elektromagentické vlny a jejich vlastnosti.
+Informace přenáší ve formě bitů - kabely, vlny a světlo neznají ale bity - je nutné definovat jaký stav znamená log. 1 a co log. 0.
 Komunikace probíhá oběžníkovým způsobem a je řízena Linkovou vrstvou.
-Definuje fyzické, elektrické, mechanické a funkční parametry fyzického propojení.
-Přenáší se samotné Bity převodem bitů na signál ať už elektrický či vlnový.\\
+\subsection{Zařízení pracující na fyzické vrstvě}
 \begin{description}
-  \item[Analogový okruh]- jednodušší, nižší rychlosti, menší odolnost proti rušení, asynchronní i synchronní, nižší cena
-  \item[Digitální okruh]- komunikace synchronní, odolnost proti rušení, komfort vzdáleného řízení linky, využívá stejná média\\
+  \item[Zesilovač]- Zesiluje signál i se šumem, je jednodušší, levnější a rychlejší než opakovač
+  \item[Opakovač]- Regeneruje signál (Opraví, zesílí a načasuje), elektricky odděluje segmenty
+  \item[HUB (Rozbočovač)]- Navyšuje konektivitu, regeneruje signál, rozvětvuje signál do více výstupů
 \end{description}
-\subsection{HW}
-Spojení může poskytnout:
-\begin{itemize}
-  \item Optický kabel - možnost využití jiných barev pro více linek
-  \item Metalický kabel - Koax, Kroucená dvojlinka
-  \item Wi-Fi, Bluetooth, Rádio - Pomocí protokolu IEEE 802.11 aj.\\
-\end{itemize}
-Zařízení pracující na fyzické vrstvě:
+\subsection{Přenosová média}
+Mezi vlastnosti přenosových médií patří:\\
+\begin{tabularx}{\linewidth}{l|l|l}
+  \textbf{Parametr}    & \textbf{Jednotka} & \textbf{Popis}                                      \\
+  Přenosová rychlost   & Bajt za sekundu   & Množství dat, které lze přenést za sekundu          \\
+  \hline
+  Útlum signálu        & dB na vzdálenost  & Zeslabení signálu po průchodu určitou délkou vodiče \\
+  \hline
+  Odolnost vůči rušení & ---               & Zejména proti elektromagickému rušení               \\
+  \hline
+  Zkreslení signálu    & ---               & Jaká změna nastala na signálu po průchodu médiem    \\
+  \hline
+  Fyzická odolnost     & ---               & Odolnost proti ohybu, tahu, mechická pevnost        \\
+\end{tabularx}
+\subsubsection{Kroucená dvojlinka}
+Pravidelně zkroucený pár vodičů, většinou měděných.
+V dnešní době se používá několik takových navzájem zkroucených párů.
+Zkroucením se minimalizuje vyzařování elektromagentických vln a minimalizují se přeslechy.
+Dnes používané hojně jako Patch kabely (Ethernet).
+\subsubsection{Koaxilní kabel}
+Kabel s vnitřním vodičem a druhým válcovým vnějším vodičem.
+Navzájem jsou vodiče odděleny dielektrikem.
+Průmery kabelů jsou od milimetrů po desítky centimetrů.
+Používají se pro televize.
+\subsubsection{Optické kabely}
+Přenášejí data pomocí světelného paprsku.
+Jsou mnohem dražší a komplikovanější než metalické vodiče.
+Zdrojem světla bývají LED či laserové diody.
+Pro přenos ve využívá \textbf{totálního odrazu} (Fyzikální zákon, který umožňuje odrazit veškeré světlo pomocí přechodu světla z opticky hustšího prostředí do opticky řidšího)
+Dělí se na:
 \begin{description}
-  \item[Opakovač]- Regeneruje signál a elektricky odděluje segmenty
-  \item[HUB]- Navyšuje konektivitu, regeneruje signál, rozvětvuje signál do více výstupů\\
+  \item[Jednovidová] - Přenáší pouze jeden světelný paprsek
+  \item[Mnohovidová] - Přenáší více světelných paprsků
 \end{description}
-\subsection{Synchronní přenos}
-Používán pro přenosy, kde je vyžadována garance rychlosti přenosu (zvuk, video..) tk. zajištěna požadovaná šíře pásma.
-Při komunikaci se musí přenášet synchronizační signál, tzv. hodiny CLK ze zdroje hodin, udává ho jenom jedna ze stran komunikace.
-Signál CLK může jít po vlastním vodiči, nebo jedním společným fyzickým kanálem (vkomponován s daty).
-\subsection{Asynchronní přenos}
-Používán pro přenosy, kde je vyžadována jednoduchost komunikace a její široká přizpůsobitelnost.
-Způsob synchronizace je prováděn v datovém toku tzv. služebními signály.
-Signál CLK není obsažen ve vlastním datovém toku, jelikož si ho každá strana vytváří sama.
-Vzorkovací signál CLK je asi 10x vyšší než přenosová rychlost.
-Přenos dat i propustnost je nižší než u synchronního.
-Data jsou dávkována mezi START bitem a STOP bitem.
-\subsection{Asymterický signál}
-Signál je na jedné svorce zpravidla na společný vodič (GND).
-Rušící signál vytváří zdroj poruch a snižování spolehlivosti přenosu.
-Přenosové médium vyžaduje proto odstínění proti rušivým signálů (koax\dots)
-\subsection{Symetrický signál}
-Signál je šířen symetricky po obou vodičích v opačné polaritě.
-Rušící signál vytváří na obou vodičích rušení stejné polarity.
-Výstupní signál je dán rozdílem signálu v obou vodičích.
-Lze použít levnější přenosové médium a překlenout větší vzdálenosti.
+\subsubsection{Rádiové spoje}
+Jedná se o přenosy elektromagentických vln v určitém rozsahu elektromagentického spektra.
+Hlavní výhodou tohoto spoje je absence kabelů, tudíž bezdrátová komunikace.
+Nevýhodou je možnost oblivnění přenosu pomocí vlivů, které by u drátové nebyly problém.
+Pro rádiové spoje se využívá různých frekvečních délek například 87.6 Mhz (Rádio Impuls) a 5 Ghz (Wi-Fi).
+Mezi další technologie hojně využívající rádiové spoje patří: Bluetooth, Mobilní signál, GPS aj.
+\subsection{Druhy možností šíření signálu}
+\subsubsection{Sériové a paralelní přenos}
+\begin{description}
+  \item[Sériové spoje]- Bity jdou za sebou postupně jedním vodičem. Bajty jsou tvořeny posloupností bitů.
+  \item[Paralelní spoje]- Několik bitů se posílá současně pomocí více vodičů. Obvykle se přenáší celý bajt.
+\end{description}
+\subsubsection{Synchronní a asynchronní přenos}
+\begin{description}
+  \item[Synchronní spoje]- Přenos dat probíhá společně se signálem CLK, který generuje pouze jedna strana.
+  \item[Asynchronní spoje]- Každá strana si CLK generuje sama. Komunikace začíná pomocí start a stop bitu.
+\end{description}
+\subsubsection{Symetričnost singálu}
+\begin{description}
+  \item[Symetrický signál]- Přenos probíhá dvou vodičím v opačné polaritě. Výstupní signál je rozdíl přenosů.
+  \item[Asymetrický signál]- Přenos probíhá po jednom vodiči. Náchylné na poruchy, nižší spolehlivita.
+\end{description}

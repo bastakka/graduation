@@ -1,1 +1,45 @@
 \section{Moderní CPU s integrovanými podpůrnými technologiemi}
+\label{sec:moderni-cpu}
+Integrované podpůrné technologie CPU urychlují komunikaci procesoru s obovody základní desky počítače.
+Mezi další výhody integrovaných podpůrných technologií je odlehčení procesoru nebo dokonce jeho zastoupení.
+\subsection{MMU - Memory Management Unit}
+Slouží jako vrstva mezi CPU a operační pamětí.
+Hlavní funkce jsou:
+\begin{itemize}
+  \item Překlad virtuální adresy na fyzickou
+  \item Správa virtuální paměti
+  \item Rozdělení virtuálního prostoru na stránky/segmenty
+\end{itemize}
+Překlad adresy musí být bezpečný, rychly a umožňovat rychlé přepínání kontextu.
+\subsubsection{TLB - Translation Lookaside Buffer}
+Součást MMU, která ukládá v sobě nedávné překlady z virtuální paměti na fyzickou.
+Když bude znova překlad potřeba, použije se rychlejši přístupný překlad v TLB.
+\subsection{MMX - Multi Medial eXtension}
+Aplikace využívající zvuk a video, 3D grafiku a animace.
+Práce s těmito prvky se provádí ve velkých blocích dat, kde se vykonávají jednoduché repetetivní operace.
+Proto se pro zrychlení práce s multimédií využívá \textbf{SIMD (Single Instruction, Multiple Data)} technologie.
+Tato technologie popsiuje schopnost několika prvků provádět stejnou operaci na různých datech paralelními výpočty.
+Kvůli lepší kompatibilitě jsou MMX registry aliasy pro instrukční sady x87 pro opreace s floaty.
+\subsection{Cache}
+Jedná se o velice rychlou SRAM paměť zabudouvanou do CPU.
+Paměť cache umožňuje vyhnout se opakovanému pomalému procesu, na který bychom museli čekat.
+Místo toho provedeme víc takových procesů najednou a poté tyto data nahrajeme do pamětí cache.
+Mimo nahrávání dat lze do cache nahrát i instrukce pro omezení potřeby je překládat.
+Jinak také cachujeme data z DRAM, které dostáváme z MMU.
+\subsection{Pipelining}
+Snaží se uspořádat instrukce tak aby byl procesor nejefektivněji využit.
+Rozdělí příchozí instrukce na po sobě jdoucí kroky, které pak přiřadí správným částem procesoru k vykonání což umožňuje paralelní zpracování různých instrukcí.
+Častou praktikou je aby se liché operace prováděli na jedné hraně hodin a sudé na druhé.
+Správně nakonfigurovaný pipeline dokončí jednu instrukci každý cyklus.
+Tento problém nemusíme řešit při programování ve vyšších jazycích jak assembler.
+\subsection{Branch prediction}
+Jakmile v rámci procesu dojde k rozhodování mezi více možnostmi, vytváří se různé větve, kterými se proces můžet vydat.
+CPU neví, po které větvi se vydá, kvůli tomu musí čekat než dostane výsledek.
+Pokud se snažíme předpovědět větev:
+\begin{itemize}
+  \item Uhodneme správně - navýšení rychlosti
+  \item Uhodneme špatně - ještě větší zpomalení kvůli zbytečné práci
+\end{itemize}
+Rozdělení na dvě větve je většinou řešeno tak, že se druhá větev načte na jiné místo v paměti programu, a pokud je splněna podmínka pro přepnutí větvě, tak provedem skok na toto jiné místo.
+Jestli ne, pokračujeme ve staré větvi.
+Dynamický branch predictor si uchovává kolikrát se na daném skoku skočilo na jinou větev a kolikrát ne, podle těchto nasbíraných dat se snaží uhodnout zdali skoční neb one.

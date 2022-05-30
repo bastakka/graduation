@@ -1,1 +1,49 @@
 \section{IPv4 adresace}
+\label{sec:ipv4-adresace}
+Slouží k logické adresaci síťových prvků v internetu, ale i na lokální síti.
+Komunikace se podle řídí pomocí směrování.
+IPv4 adresa se skládá z 4B, které zapisuje decimálně (Od 0 do 255).
+\begin{center}
+  \[\mathlarger{\mathlarger{\mathlarger{\mathlarger{192.168.0.1}}}}\]
+\end{center}
+Adressy rozdělujeme podle stanovené masky sítě:
+\subsection{Classful (1. Epocha)}
+První oktet adresy určuje třídu, neboli i masku
+Rozdělují se na třídy:
+\begin{description}
+  \item[A] 1.0.0.0 - 126.0.0.0 mají masku /8
+  \item[B] 128.0.0.0 - 191.255.0.0 mají masku /16
+  \item[C] 192.0.0.0 - 233.255.255.0 mají masku /24
+  \item[D] 224.0.0.0 - 239.255.255.255 mají masku /32 
+\end{description}
+\subsection{Classless (2. Epocha)}
+Proměnná maska.
+Zavedeno pro šetření adres.
+Umožňuje nám vytvářem podsítě za pomoci FLSM nebo VLSM.
+Masku sítě uvádíme suffixem /číslo, které nám udává počet binárních 1, které se budou v masce vyskytovat.
+Proto $/8 = 1111 1111.0.0.0$.
+
+Pro určení podsítě nebo nadsítě je nutné zjisit jestli je maska vyšší nebo nižší než maska pro adresu z první epochy.
+Proto $192.100.100.0/28 =$ podsíť a $192.100.100.0/22 =$ nadsíť.
+
+Tato maska umožňuje IP adresu rozdělit na dvě části.
+Na část síťovou a část hostitele.
+Z adresy $192.100.100.0/16$ jsem tedy schopen zjistit že se jedná o síť $192.100.0.0$ a hostitele $192.100.100.0$.
+\subsection{Lokální adresy}
+Pro šetření adres je možné použít adresy určené pouze pro přenos po lokální síti.
+Nejsou routovatelné do internetu.
+Dvě zařízení ve dvou různých lokálních sítích mohou mít stejnou adresu.
+Mezi tyto adresy patří
+\begin{itemize}
+  \item 10.0.0.0 - 10.255.255.255
+  \item 172.16.0.0 - 172.31.255.255
+  \item 192.168.0.0 - 192.168.255.255
+\end{itemize}
+\subsection{Speciální adresy}
+\begin{itemize}
+  \item 0.0.0.0/32 - Využíváno hostem pro žádost o logickou adresu od DHCP serveru.
+  \item 127.0.0.0/8 - Využíváno pro připojení se samo na sebe. (Loopback)
+  \item 255.255.255.255/32 - Lokální broadcast
+  \item 224.0.0.0 - 239.255.255.255 - Multicast směrovací protokoly (Třída D)
+\end{itemize}
+Všechny adresy co nespadají do rozsahu speciálních nebo lokálních adres jsou globální.

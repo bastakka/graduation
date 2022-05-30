@@ -21,10 +21,12 @@ Rozděluje síť na dvě části.
 Podle MAC adresy buďto rámec pošle na druhou stranu nebo ho dál nepošle.
 Nepotřebuje konfigurovat, jelikož si sám ukládá kde daná MAC adresa leží po prvním zjištění pomocí broadcastu.
 \subsubsection{Switch}
+\label{subsubsec:switch}
 Nahrazuje HUBy.
 Dal by se nazvat jako bridge s více porty.
 Propojuje jednotlivé prvky do hvězdicové topologie.
 Má tabulku se seznamem MAC adres připadajících na port a podle toho rozesílá data.
+Takzvaně \textbf{PŘEPÍNÁ} komunikaci.
 Existují i L3 switche, které dokáží rozesílat data i podle IP adres.
 K přenosu rámců switch používá tři způsoby:
 \begin{description}

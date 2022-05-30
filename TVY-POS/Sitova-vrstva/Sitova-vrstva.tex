@@ -1,42 +1,39 @@
 \section{Síťová vrstva}
-Zajišťuje přenos dat mezi vzdálenými počítači (WAN).
-Klíčovým prvkem v této komunikaci je směrovač (router).
-Každý takový směrovač má svoji jednoznačnou identifikaci v rámci WAN (IP Adresu).
-Přenáší se IP datagramy neboli pakety. Nezajímá se o protokoly linkové a fyzické vrstvy.\\
-Funkce síťové vrstvy:
-\begin{itemize}
-  \item Hledání cesty pro pakety mezi libovolnými dvěma uzly v síti
-  \item Nestará o spolehlivost, ale o co nejrychlejší přenos dat
-  \item Zajistění postupného přenosu paketů přes mezilehlé uzly v cestě
-  \item Přenosový protokol IP se snaží zakrývat rozdíly v technologiích nižší vrstvy
-\end{itemize}
-Cesta paketu:
-\begin{enumerate}
-  \item Zabalení přenášeného paketu do rámce
-  \item Prostřednictvím vrstvy síťového rozhraní předání rámce přímému sousedovi
-  \item V sousedním uzlu přijmutí a rozbalení rámce vrstvou síťového rozhraní
-  \item Předání získaného paketu své síťové vrstvě, která najde nejvhodnější cestu k cíli
-  \item Prostřednictvím vrstvy síťového rozhraní zaslání rámce k dalšímu uzlu
-\end{enumerate}
-\subsection{Směrování}
-Technika k vnitřnímu rozčlenění rozsáhlých sítí LAN i MAN.\\
-Běžně se používá jako proces šíření globální síťové komunikace v Internetu.\\
-Účely směrování:
-\begin{itemize}
-  \item Usměrnění komunikace
-  \item Optimalizace zátěže sítě
-  \item Implementace bezpečnosti
-  \item Zvýšení spolehlivosti na síťové vrstvě
-\end{itemize}
-\begin{description}
-  \item[Statické]je nastaveno pevně administrativně - DHCP
-  \item[Dynamické]je pravidelně aktuailzováno speciálními protokoly - Mnoho
-\end{description}
-\subsection{IP Adresace}
-Každá síťová stanice musí mít pevně stanovenou identifikaci - IP adresu.
-Ta je buďto napevno přidělena nebo dynamicky přidělována.
-V současné době se využívá IPv4 adresa o velikosti 32bitů.
-Tato IP adresa má v sobě zahrnuté jak číslo sítě, tak číslo stanice.
-Tvar adresy je \[XXX.XXX.XXX.XXX\]
-V každé síti musí být jedinečný router, který síť propojuje pomocí směrování. IP adresa hostitele a routeru musí být odlišná.\\
-Jiné protkoly dostupné pro síťovou vrstvu: ICMP - Internet Control Message Protocol (Řešení problémů IP, ping\dots), IGMP, ARP, RARP.
+\label{sec:sitova-vrstva}
+Jedná se o třetí vrstvu ISO-OSI modelu.
+Každé zařízení dostává na síti jednoznačnou identifikaci v podobě logické adresy (většinou IPv4 nebo IPv6).
+Zajišťuje komunikaci mezi zařízeními pomocí těchto adres.
+Její datovou jednotkou je paket.
+V rámci ISO-OSI a TCP/IP je tato vrstva stejná.
+Nerozlišuje fyzickou ani linkovou vrstvu.
+\subsection{Zařízení fungující na síťové vrstvě}
+\subsubsection{NIC}
+Zařízení připojující PC do sítě.
+Může připojit i více počítačů, ale většinou se jedná o karty připojované do základové desky nebo o integrovaný čip na ní.
+Její rozhraní se dá přímo adresovat, posílat a přijímat jí data.
+\subsubsection{Router}
+Zařízení které jednotlivé připojené zařízení připojuje do sítě LAN, pomocí které se pak zařízení připojují do sítě WAN.
+Zajišťujě směrování paketů (přenos na správnou logickou adresu).
+Směrování zajiťuje pomocí směrovací tabulky, ve které je možné určit buďto cestu statickou nebo dynamickou za pomoci \hyperref[sec:smerovaci-protokoly]{dynamických směrovacích protkolů.}
+V dnešní době toto zařízení v sobě obsahuje i DNS a DHCP server.
+DNS server překládá URL adresy na logické adresy (google.com => 142.251.36.142).
+DHCP server přiděluje logické adresy jednotlivých klientům na síti.
+Doporučené nastavení DHCP serveru je přidělení nejvyšší možnou adresu routeru, nejnižší serverům a klientům zbytek.
+\subsubsection{L3 Switch}
+Oproti klasickému \hyperref[subsubsec:switch]{switchy} umí komunikaci oddělovat a \textbf{SMĚROVAT} i na třetí vrstvě pomocí logických adres.
+Lze ho takto i dobře použít na komunikaci v rámci \hyperref[sec:vlan]{VLAN}
+\subsubsection{Gateway}
+Zařízení které spojuje sítě s jinými komunikačními protokoly.
+Například počítač který pomocí webové stránky odešle zprávu do GSM pomocí SMS zprávy.
+Může akorát změnit datagramy transportní vrstvy místo kódování celé zprávy.
+\subsection{Protokoly síťové vrsty}
+\subsubsection{IP}
+Stará se adresaci zařízení.
+Má také za úkol dostat pakety z jedné sítě do druhé.
+Tato komunikace je nespolehlivá a nespojová, proto se o integritu dat stará transportní vrstva (například TCP).
+Jestliže se využívá například UDP protokolu na transportní vrstvě, tak se o integritu starají protkoly vyšších vrstev.
+\subsubsection{ICMP}
+Využívám pro odesílání chybových hlášení.
+Například pro oznání o nedostupné službě či nedosažitelného cíle.
+\subsubsection{ARP}
+Pro naplnění směrovacích tabulek routerů a switchů je nutné použít ARP protokol pro získání fyzické adresy a logické adresy od zařízení na síti.

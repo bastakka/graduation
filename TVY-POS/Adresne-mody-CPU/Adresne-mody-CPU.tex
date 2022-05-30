@@ -1,1 +1,47 @@
 \section{Adresné módy běhu CPU}
+\label{sec:adresnemody}
+Každý procesor využívá nějakou vnější paměť, v našem případě se většinou jedná o paměť RAM.
+Tuto paměť musí procesor nějakým způsobem adresovat, aby s ní mohl pracovat.
+Adresování paměťi může probíhat 4 způsoby.
+\subsection{Reálný režim}
+Paměť kterou každý x86 CPU začíná.
+Z tohoto režimu ho přepíná OS většinou do chráněného režimu.
+Reálný režim znamená že pracuje s fyzickou adresou paměti, tudíž je adresace omezena šířkou adresní sběrnice.
+Pracoval v něm DOS, využívá se akorát pro zpětnou kompatibilitu.
+Tento režim nezabraňuje programům používat paměť jiných programů.
+Fyzická adresa se počítá pomocí segmentu a offsetu.
+Bez himem.sys vidí DOS pouze 1MB paměti.
+V tomto případě první třetina paměti bývá prostor pro aplikace a pro přerušení.
+Zbylé dvě třetiny paměti se používá pro systém (BIOS, video, aj.)
+
+\subsection{Virtualní reálný režim}
+Dokáže emulovat více Reálných režimů vedle sebe ve chráněnném režimu.
+
+\subsection{Chráněnný režim}
+Režim virtuálních adres.
+Umožňuje využití větší části paměti podle velikosti registru.
+32bitové procesory mohou pracovat s paměti do až velikosti 4GB.
+
+\subsubsection{Multitasking}
+Umožňuje paralelní práci více programů.
+Procesor řeší ochranu mezi jednotlivými spuštěnými programy pomocí virtuální paměti pro každý program.
+Každý samostatný program se takto chová jako by měl celou paměť pro sebe a neřeší kam svá data zapisuje.
+To přenechává aplikace součásti CPU zvanou MMU.
+
+\subsubsection{MMU}
+Správuje přístup do paměti.
+Vytváří virtuální adresy ze selektoru, offsetu a tabulky deskriptorů a zařizuje překlad virtuální adresy na fyzickou.
+Selektor obsahuje informace o oprávnění přístupu, zdali se jedná o globální nebo lokální prostor a poté samotný index.
+Globální sektor je určený více uživatelům, který zastřešuje ochranná funkce, která odděluje systémový prostor or uživatelského.
+Lokální prostor je určení pro jedinečná data. (Nenašel jsem co to znamená)
+
+\subsubsection{Stránkování segmentace}
+MMU je schopné rozdělit operační paměť na stejně velké části (stránky).
+Tyto stránky se následně přidelí programu a zapíše se jaké stránky daný program má.
+Tyto stránky mohou být rozmístěny různě po paměti, tudíž je možné že část programu bude na začátku a část na konci paměti.
+Pro výpočet adresy je poté nutné společně se selektorem a offsetem využít zapsanou stránku.
+Bez této technologie by nám mohli časem v paměti vzniknout nevyužité mezery v paměti.
+
+\subsection{Dlouhý režim}
+Režim pro použití 64bitových instrukcí a registrů.
+Programy, které tyto instrukce nepoužívají jsou spuštěny v režimu kompatibilty.

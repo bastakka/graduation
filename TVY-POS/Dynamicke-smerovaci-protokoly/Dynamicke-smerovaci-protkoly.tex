@@ -1,53 +1,54 @@
 \section{Dynamické směrovací protokoly}
+\label{sec:smerovaci-protokoly}
 \subsection{Úvod}
 Pro přesun paketů ze zdroje na požadované zařízení na lokálních sítích se dnes využívá routererů, které si vytváří tzv. směrovací tabulku, pomocí které vybírají nejlepší cestu pro tento paket.
 V této tabulce je možné najít:
 \begin{itemize}
-    \item Adresu sítě (Na které je požadované zařízení)
-    \item Typ cesty (Přímá, statická či dle prokolu)
-    \item Fyzické rozhraní, po kterém se paket přenese
+  \item Adresu sítě (Na které je požadované zařízení)
+  \item Typ cesty (Přímá, statická či dle prokolu)
+  \item Fyzické rozhraní, po kterém se paket přenese
 \end{itemize}
 Mezi typy cest patří:
 \begin{enumerate}
-    \item Přímo připojené (C)
-          \begin{itemize}
-              \item Není nutno konfiguovat
-              \item Přidají se automaticky je-li rozhraní aktivní
-              \item Administrativní vzdálenost: 0
-          \end{itemize}
-    \item Statické (S)
-          \begin{itemize}
-              \item Zadávána ručne
-              \item Je nutno specifikovat IP adresu sítě s maskou a rozhraní routeru
-              \item Případně lze specifikovat IP adresu protějšího routeru a směr
-              \item Administrativní vzdálenost: 1
-              \item Využívají se pro:
-                    \begin{itemize}
-                        \item Připojení sítě do Internetu pomocí jednoho ISP
-                        \item Větší sítě v konfigurace „Hub-and-spoke“
-                    \end{itemize}
-          \end{itemize}
-    \item Dynamické (Dle protokolu)
-          \begin{itemize}
-              \item Generují se automaticky a dynamicky
-              \item Routery si navzájem sdílí informace o těchto tabulkách, podle kterých upravují vlastní
-          \end{itemize}
+  \item Přímo připojené (C)
+        \begin{itemize}
+          \item Není nutno konfiguovat
+          \item Přidají se automaticky je-li rozhraní aktivní
+          \item Administrativní vzdálenost: 0
+        \end{itemize}
+  \item Statické (S)
+        \begin{itemize}
+          \item Zadávána ručne
+          \item Je nutno specifikovat IP adresu sítě s maskou a rozhraní routeru
+          \item Případně lze specifikovat IP adresu protějšího routeru a směr
+          \item Administrativní vzdálenost: 1
+          \item Využívají se pro:
+                \begin{itemize}
+                  \item Připojení sítě do Internetu pomocí jednoho ISP
+                  \item Větší sítě v konfigurace „Hub-and-spoke“
+                \end{itemize}
+        \end{itemize}
+  \item Dynamické (Dle protokolu)
+        \begin{itemize}
+          \item Generují se automaticky a dynamicky
+          \item Routery si navzájem sdílí informace o těchto tabulkách, podle kterých upravují vlastní
+        \end{itemize}
 \end{enumerate}
 \subsection{Rozdělení protkolů}
 Protkoly se v základu dělí na:
 \begin{itemize}
-    \item IGP - Používané v rámci jedné domény
-    \item EGP - Používané v rámci ISP na WAN
+  \item IGP - Používané v rámci jedné domény
+  \item EGP - Používané v rámci ISP na WAN
 \end{itemize}
 Dělí se také ale podle dělí podle využití masky sítí na:
 \begin{itemize}
-    \item Classfull - Nevyuživá masky sítí, nemohou být použity ve VLSM
-    \item Classless - Využívá a vyžaduje masky sítí
+  \item Classfull - Nevyuživá masky sítí, nemohou být použity ve VLSM
+  \item Classless - Využívá a vyžaduje masky sítí
 \end{itemize}
 Samotné IGP protokoly se poté dělí na:
 \begin{itemize}
-    \item Protkoly měřící vzdálenost a směr (DVRP - Distance Vektor Routing Protocol)
-    \item Protkoly měřící stav linek a topologickou mapu sítě (LSRP - Link State Routing Protocol)
+  \item Protkoly měřící vzdálenost a směr (DVRP - Distance Vektor Routing Protocol)
+  \item Protkoly měřící stav linek a topologickou mapu sítě (LSRP - Link State Routing Protocol)
 \end{itemize}
 \subsection{Distance vector protokoly (DVRP)}
 Cesta je určena vektorem, ve kterém hrají role vzdálenost a směr.
@@ -66,37 +67,37 @@ Jedná se o dobu, za kterou se na všech routerech vytvoří platné a nejlepš�
 Mezi parametry důležité pro konvergenci patří rychlost šíření informací a rychlost výpočtu optimálních cest.
 \subsection{Metrika protkolů}
 \begin{tabularx}{\linewidth}{l|l}
-    \textbf{Parametr} & \textbf{Popis}                     \\
-    \hline
-    Počet hopů        & Počet routerů mezi zdrojem a cílem \\
-    \hline
-    Šířka pásma       & Propustnost linky                  \\
-    \hline
-    Zátěž             & Zatížení linky                     \\
-    \hline
-    Zpoždění          & Doba průchodu paketu linkou        \\
-    \hline
-    Spolehlivost      & Pravděpodobnost chyby linky        \\
-    \hline
-    Cena              & Určeno politikou linky             \\
+  \textbf{Parametr} & \textbf{Popis}                     \\
+  \hline
+  Počet hopů        & Počet routerů mezi zdrojem a cílem \\
+  \hline
+  Šířka pásma       & Propustnost linky                  \\
+  \hline
+  Zátěž             & Zatížení linky                     \\
+  \hline
+  Zpoždění          & Doba průchodu paketu linkou        \\
+  \hline
+  Spolehlivost      & Pravděpodobnost chyby linky        \\
+  \hline
+  Cena              & Určeno politikou linky             \\
 \end{tabularx}
 \subsection{Tabulka protokolů}
 \begin{tabularx}{\linewidth}{l|l|l|l|l}
-    \textbf{Název (IPv6 verze)}           & \textbf{Zkratka}        & \textbf{Vlastnosti}               & \textbf{Metrika}       & \textbf{Admin. vzdálenost} \\
-    \hline
-    RIP (RIPng)                           & R                       & Interní DVRP                      & Počet hopů             & 120                        \\
-    \hline
-    \multirow{2}{8em}{{IGRP}}             & \multirow{2}{5em}{{I}}  & \multirow{2}{8em}{{Interní DVRP}} & Šířka pásma, zpoždění, & \multirow{2}{5em}{{90}}    \\
-                                          &                         &                                   & spolehlivost a zátěž                                \\
-    \hline
-    \multirow{2}{8em}{{EIGRP (for IPv6)}} & \multirow{2}{5em}{{EX}} & \multirow{2}{8em}{{Interní DVRP}} & Šířka pásma, zpoždění, & \multirow{2}{5em}{{170}}   \\
-                                          &                         &                                   & spolehlivost a zátěž                                \\
-    \hline
-    OSPFv2 (OSPFv3)                       & O                       & Interní LSRP                      & Cena                   & 110                        \\
-    \hline
-    IS-IS (for IPv6)                      & i                       & Interní LSRP                      & Cena                   & 115                        \\
-    \hline
-    EGP                                   & E                       & Externí Path Vector               & Různé                  & 140                        \\
-    \hline
-    BGPv4 (for IPv6)                      & B                       & Externí Path Vector               & Různé                  & 20                         \\
+  \textbf{Název (IPv6 verze)}           & \textbf{Zkratka}        & \textbf{Vlastnosti}               & \textbf{Metrika}       & \textbf{Admin. vzdálenost} \\
+  \hline
+  RIP (RIPng)                           & R                       & Interní DVRP                      & Počet hopů             & 120                        \\
+  \hline
+  \multirow{2}{8em}{{IGRP}}             & \multirow{2}{5em}{{I}}  & \multirow{2}{8em}{{Interní DVRP}} & Šířka pásma, zpoždění, & \multirow{2}{5em}{{90}}    \\
+                                        &                         &                                   & spolehlivost a zátěž                                \\
+  \hline
+  \multirow{2}{8em}{{EIGRP (for IPv6)}} & \multirow{2}{5em}{{EX}} & \multirow{2}{8em}{{Interní DVRP}} & Šířka pásma, zpoždění, & \multirow{2}{5em}{{170}}   \\
+                                        &                         &                                   & spolehlivost a zátěž                                \\
+  \hline
+  OSPFv2 (OSPFv3)                       & O                       & Interní LSRP                      & Cena                   & 110                        \\
+  \hline
+  IS-IS (for IPv6)                      & i                       & Interní LSRP                      & Cena                   & 115                        \\
+  \hline
+  EGP                                   & E                       & Externí Path Vector               & Různé                  & 140                        \\
+  \hline
+  BGPv4 (for IPv6)                      & B                       & Externí Path Vector               & Různé                  & 20                         \\
 \end{tabularx}

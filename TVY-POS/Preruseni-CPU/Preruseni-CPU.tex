@@ -1,1 +1,29 @@
 \section{Činnost CPU při zpracování přerušení, DMA a podprogramu}
+\label{sec:cpu-preruseni}
+Por svou činnost CPU potřebuje vstupy a výstupy.
+Jelikož ale není možná aby CPU konstantně kontroloval zda-li nějaké zařízení předává vstup, tak se takové nové požadavky řeší pomocí přerušení.
+Defakto se jedná o předání informace, že se něco něco stalo a vyžaduje pozornost.
+Existují různé druhy přerušení.
+\subsection{Přerušení}
+Přerušení je \textbf{asynchronní}, což znamená, že když nastane, tak se vykoná ihned.
+Využití pro myš, klávesnice, USB, ale i při dělení nulou.
+Přerušení můžou mít prioritu pro určení pořadí jejich zpracování.
+Je možné taky zakázat přerušení na CPU, ale některé nemohou být takto zakázána, jelikož například souvisí s právě spuštěným programem.
+V operační paměti je tabulka přerušení a pro jeho vykonání si CPU uloží svůj předchozí stav do zásobníku.
+Rozdělení přerušení:\\
+\begin{description}
+  \item[Vnitřní HW]- Chyba při provádění instrukce (Dělení nulou)
+  \item[Vnější HW]- Periferie potřebuje zpracování dat (myš\dots)
+  \item[SW]- Volání podprogramu
+\end{description}
+\subsection{Podprogram}
+Podprogram je \textbf{synchronní}, což znamená, že když to kdy nastane nemá vliv na jeho výkon.
+Vykoná se až CPU určí.
+Jinak se s ním pracuje stejně jako s přerušením.
+\subsection{DMA (Direct Memory Access)}
+DMA je speciální druh přerušení, u kterého CPU nemusí přestat pracovat.
+CPU v tomto případě akorát zahájí přenos dat nebo z paměti a pak dále pokračuje v jeho činosti mezitím co DMA přenáší data.
+DMA se většinou nachází na jižním můstku.
+Jestliže CPU v průběhu DMA potřebuje přístup do datové sběrnice, tak ovšem musí počkat na její uvolnění.
+Využíváno pro: Paměťová média, grafické, zvukové, síťové karty.
+DMA musí podporovat obě strany přenosu.

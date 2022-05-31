@@ -1,1 +1,31 @@
 \section{FW a ochrany jednotlivých vrstev TCP/IP}
+\label{sec:fw-a-ochrana-tcp-ip}
+Ochrana před útoky na síti je důležitá pro bezpečnost společnosti.
+Zaručí si tím ochranu před krádeží dat.
+Každá společnost si sama stanovuje jaké prvky bezpečnosti použije dle "Bezpečnostní politky".
+\subsection{Bezpečnostní politika}
+Pojem který popisuje "kdo může co udělat" na síti.
+Z počátku každý důvěřoval na síti každému, tudíž byla síť zneužitelná.
+Pak přišel rázný přechod na politiku "Nikomu nic nevěřím".
+Přišlo řešení s názvem \textbf{Active directory}, které nabízelo uživatelům přidělit role, které určovaly přístup k daným službám či datům.
+Bylo důležité uživatelům nabídlout balanci mezi přístupem k potřebným věcech a zapřít přístup k ostatním.
+\subsection{Firewall}
+Pro zabezpečení přístupu zvenční se používají pravidla, které se určují v zabezpečovací vrstvě zvané \textbf{Firewall}.
+V této vrstvě je možné určit okruh IP adres, které mají přístup k dané službě nebo i čas po který je služba přístupná.
+Může být realizované pomocí SW (Na počítači, routeru) ale i HW (Samostané zařízení nebo v routeru).
+Dvě sítě ošetřené firewallem mají mezi sebou demlitarizovanou zónu.
+Co všechno lze tímto zakázat:
+\begin{itemize}
+  \item Aplikace
+  \item Porty
+  \item Protokoly
+\end{itemize}
+\subsection{Ochrany jednotlivých vrstev TCP/IP}
+\begin{enumerate}
+  \item Fyzická - Klíč na počítače, správné chlazení, schované kabely
+  \item Linková - Filtr fyzických adres, omezení adres na port, blokace nepoužitých portů
+  \item Síťová - Filtr logických adres a provozu na síti (VPN)
+  \item Transportní - Filtr protoků a portů (HTTPS)
+  \item Aplikační - Antivir, proxy, uživatelská gramotnost
+\end{enumerate}
+Služby zapínám pouze pokud je potřebuji, jinak jsou vypnuté.

@@ -1,1 +1,53 @@
 \section{Logické členění paměti podle určení}
+\label{sec:logicke-cleneni-pameti}
+Paměť je médium, které umožňuje uchovávat informace.
+Pro každé prostředí je potřeba paměť s jinou specifikací.
+Jinde jsou potřeba paměti s velmi vysokou rychlost, někde s velmi krátkou přístupovou dobou nebo s velmi velkou kapacitou.
+V počítači používáme následující paměti:
+\subsection{Konvenční paměť}
+Bývalé označení paměti v DOS, která měla 640 kB.
+Sloužila pro aplikace a pracovalo se v ní v Realném režimu.
+Zbytek paměti byl určet pro rozšiřující karty.
+\subsection{Cache}
+Jedná se o velmi rychlou paměť malé kapacity.
+Slouží ke zrychlení toku dat mezi CPU a RAM.
+Na procesoru se jich nachází více a každá z nich má svůj řadič.
+Od Bufferu se liší tím, že může uložená data poskytovat opakovaně.
+V procesoru se mohou nacházet až tři vrstvy L + číslo cache pamětí (L1, L2, L3).
+Tyto paměti slouží k ukládání právě zpracovávaných instrukcí a dat.
+Stupňují se s rychlostí a kapacitou.
+L1 je nejrychlejší ale nejmenší.
+L3 je naopak nepomalý, ale největší. 
+I přesto ale je její rychlost neporovnatelná s rychlostí konvenční paměti.
+\subsubsection{Asociativnost cache}
+\begin{description}
+  \item[Asociativní]- Vyhládáví v paměti pomocí klíče
+  \item[Nesociativní]-  Vyhledávání v paměti pomocí adresy
+\end{description}
+\subsubsection{Adresace cache}
+\begin{description}
+  \item[Virtuální]- Vyhledávání podle logické adresy
+  \item[Fyzická]- Výpočet fyzické adresy a až poté vyhledávání v paměti
+\end{description}
+\subsubsection{Synchronnost cache}
+\begin{description}
+  \item[Synchronní]- CPU po zadání adresy nečeká na data. Požádá o ně v dalším taktu. Odpadá čekání.
+  \item[Asynchronní]-  Sběrnice je obsazena celou dobu přenosu. Nepouživá se.
+\end{description}
+\subsection{Buffer}
+Buffer neboli vyrovnávací paměť má za úkol vyrovnat rychlosti, jesltiže vstupní data přicházejí moc rychle nebo sporadicky.
+Pro práci s daty potřebujeme konstatní datovou rychlost a tu nám v takovém případě poskytuje Buffer.
+Paměť je typu FIFO, tudíž první data, která do paměti přijdou, z ní také první odejdou.
+Tyto data už poté nelze z této paměti získat znova.
+\subsection{Segment}
+Segment je část operační paměti, která je určena pro jeden konkrétní účel.
+Délka tohoto segmentu je určena podle takového účelu.
+Při výpočtu adresy paměti je k této informaci ještě potřeba zjisit offset, aby bylo možné z takového segmentu vybrat pouze potřebnou část dat.
+\subsection{Page}
+Stránkování paměti je proces, který rozdělí operační pamět na stejně dlouhé úseky o malé velikosti.
+Tyto úseky poté přiděluje jednotlivým procesům v množství, ve kterém potřebují.
+Tyto úseky je možné narozdíl od segmentu rozdělit po celé operační paměti a není nutné, aby byl přidělován celý blok v jednotném tvaru.
+Pro aplikace se jeví paměť poté jakože má k dispozici paměť od 0 až po maximum -1.
+Adresa se musí překládat pomocí MMU.
+Velmi efektivní způsob rozdělení paměti.
+

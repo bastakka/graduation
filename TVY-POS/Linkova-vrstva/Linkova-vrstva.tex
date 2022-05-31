@@ -8,10 +8,10 @@ Každé zařízení má od výroby přiřazenou MAC adresu používanou pro komu
 Staří verze MAC adres má formát šesti oktetů (FF:FF:FF:FF:FF:FF), nově se používá i formát osmi oktetů (FF:FF:FF:FF:FF:FF:FF).
 Jestliže se posílá informace na adresy ze samých FF, tak se jedná o broadcast.
 První tři oktety adresy určují výrobce zbytek pro samotné zařízení.
-Dále se MAC adresy dělí na:
+Dále se MAC adresy dělí na:\\
 \begin{description}
   \item[Unikátní]- Určené od výrobce
-  \item[Lokální]- Přepsaná administrátorem či softwarem
+  \item[Lokální]- Přepsaná administrátorem či softwarem\\
 \end{description}
 Toto je určeno pomocí předposledního bitu prvního oktetu.
 Poslí byt prvního oktetu určuje jestli se jedná o unicat či multicast.
@@ -28,9 +28,9 @@ Propojuje jednotlivé prvky do hvězdicové topologie.
 Má tabulku se seznamem MAC adres připadajících na port a podle toho rozesílá data.
 Takzvaně \textbf{PŘEPÍNÁ} komunikaci.
 Existují i L3 switche, které dokáží rozesílat data i podle IP adres.
-K přenosu rámců switch používá tři způsoby:
+K přenosu rámců switch používá tři způsoby:\\
 \begin{description}
   \item[Flooding]- Rámec z jednoho portu je přenesen na všechny ostatní porty.
   \item[Forwarding]- Rámec předá pouze portu podle určené MAC adresy.
-  \item[Filtering]- Switch přijme rámec na kterém je cílová MAC adresa na stejném portu jako port, ze kterého rámec přišel a tak rámec zahodí.   
+  \item[Filtering]- Switch přijme rámec na kterém je cílová MAC adresa na stejném portu jako port, ze kterého rámec přišel a tak rámec zahodí.
 \end{description}

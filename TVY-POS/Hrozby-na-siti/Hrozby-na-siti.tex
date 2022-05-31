@@ -1,1 +1,47 @@
 \section{Hrozby na síti}
+\label{sec:hrozby-na-siti}
+Hrozby můžou být software či hardware sestrojené za účelem odcizení dat, peněz, informací nebo k zablokování přístupu.
+Je nutné se proti tumto bránit na všech vrstvách ISO/OSI.
+Mezi takové hrozby může patřit:
+\begin{itemize}
+  \item SW
+        \begin{itemize}
+          \item Viry - bez vědomí uživatele spouští v PC operace
+          \item Malware - zajišťuje tajný přístup do zařízení
+        \end{itemize}
+  \item HW
+        \begin{itemize}
+          \item Sniffer - zařízení pro sběr dat
+          \item Backdoor - brána pro připojení do sítě
+        \end{itemize}
+\end{itemize}
+\subsection{Dělení malware}
+\begin{description}
+  \item[Spyware]- Odesílá uživatelovi data bez jeho vědomí.
+  \item[Adware]- Odstranění agresivní reklamy za poplatek.
+  \item[Phishing]- Stránka vydávající se za jinou. Po zadání přihlašovacích údajů se odešlou hackerovi.
+  \item[Trojský kůň]- Funkční program, který obsahuje skrytý vir.
+  \item[Červ]- Samo šířící se malware. Má v sobě zabudovanou šířící se funkci.
+  \item[Keylogger]- Každý stisk klávesy se zaznamenává a odesílá zkrze internet hackerovi.
+  \item[Ransomware]- Zašifruje disk a pro dešifraci je nutné zaplatit poplatek.
+\end{description}
+\subsection{Šíření malware}
+\begin{itemize}
+  \item Mailem - jako příloha, například pod falešnou identitou úřadu, policie\dots
+  \item Trojský kůň
+  \item Červ
+\end{itemize}
+\subsection{Odstranění malware}
+\begin{enumerate}
+  \item Odinstalace programu
+  \item Odstavit vir pomocí antiviru
+  \item Reinstalace OS
+\end{enumerate}
+\subsection{Druhy útoků}
+\begin{description}
+  \item[Brute force]- Snaha o prolomění ochrany hrubou silou. Zkoušení všech možných kobinací hesel. 
+  \item[Social engineering]- Snaha o získání přístupu pomocí samotné interakce s uživatelem.
+  \item[DNS spoofing]- DNS špatně přeloží adresu na adresu hackera, který poté získá údaje. (Phishing)
+  \item[DDOS]- Vyřazení služby z provozu. Zahlcení infrastruktury provozem co není schopen zvládnout.
+  \item[BOTnet]- Pomocí jednotlivě nakažených PC hacker provádí útoky ve vetším množství.
+\end{description}
